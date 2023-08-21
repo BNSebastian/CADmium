@@ -6,11 +6,6 @@ namespace persistence
     {
         public static async Task SeedData(DataContext context)
         {
-            await SeedConcreteData(context);
-        }
-
-        public static async Task SeedConcreteData(DataContext context)
-        {
             // check if there are any activities in the database
             if (context.Concrete.Any()) return;
 
@@ -20,6 +15,12 @@ namespace persistence
                 new Concrete
                 {
                     Class = "C20/25",
+                    CharacteristicCompressiveStrength = 20.0f,
+                    CharacteristicTensileStrength = 1.5f,
+                },
+                new Concrete
+                {
+                    Class = "C25/30",
                     CharacteristicCompressiveStrength = 20.0f,
                     CharacteristicTensileStrength = 1.5f,
                 }

@@ -10,7 +10,9 @@ namespace persistence.Materials
 
         Concrete GetById(int id);
 
-        bool Exists(int id);
+        bool Exists(string className);
+
+        bool ExistsById(int id);
 
         bool Create(Concrete entry);
 

@@ -1,10 +1,11 @@
 ﻿using AutoMapper;
+using domain.Materials;
 
-namespace domain.Materials
+namespace api.Mapper
 {
-    public class MaterialsMapping : Profile
+    public class MaterialsProfile : Profile
     {
-        public MaterialsMapping()
+        public MaterialsProfile()
         {
             CreateMap<Concrete, ConcreteDTO>();
             CreateMap<ConcreteDTO, Concrete>();

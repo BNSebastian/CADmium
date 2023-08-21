@@ -1,4 +1,6 @@
 ﻿using domain.Materials;
+using Microsoft.EntityFrameworkCore;
+using System.Diagnostics;
 
 namespace persistence.Materials
 {
@@ -29,7 +31,16 @@ namespace persistence.Materials
             return Save();
         }
 
-        public bool Exists(int id)
+        public bool Exists(string className)
+        {
+            Debug.WriteLine($"Searching for class name: {className}");
+
+            return _context
+                .Concrete
+                .Any(current => current.Class == className);
+        }
+
+        public bool ExistsById(int id)
         {
             return _context
                 .Concrete
@@ -52,9 +63,7 @@ namespace persistence.Materials
 
         public ICollection<Concrete> GetAll()
         {
-            return _context
-                .Concrete
-                .ToList();
+            return _context.Concrete.ToList();
         }
 
         public bool Save()
